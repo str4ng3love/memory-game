@@ -5,9 +5,9 @@ export default function PopRules() {
   return (
     <>
       {show ? (
-      
-          <div className="absolute flex flex-col bg-black p-4 rounded-md text-white min-w-[500px] items-center m-4  shadow-black shadow-lg">
-          <h2 className="text-2xl">Them Rules:</h2>
+        <div className="absolute backdrop-blur-md w-[100dvw] h-[100dvh] flex items-center justify-center font-mono">
+          <div className=" flex flex-col bg-black p-4 rounded-md text-white min-w-[500px] items-center  shadow-black shadow-lg">
+            <h2 className="text-2xl">Them Rules:</h2>
             <div className="p-4 flex flex-col ">
               <ul>
                 <li className="p-4">
@@ -35,7 +35,7 @@ export default function PopRules() {
               PLAY
             </button>
           </div>
-
+        </div>
       ) : (
         <></>
       )}

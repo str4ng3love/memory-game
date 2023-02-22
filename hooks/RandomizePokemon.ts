@@ -1,12 +1,12 @@
 
 
-export default function RandomizePokemon(pokeArray: object[], amount:number) {
+export default function RandomizePokemon(pokeArray: {name:string, url:string}[], amount:number) {
     const randomPokes = FYShuffle(pokeArray).slice(0, amount)
     const pairArr = DoubleArray(randomPokes)
     const shuffledArrWithPairs = FYShuffle(pairArr)
     return shuffledArrWithPairs
 }
-export const FYShuffle = (arr: object[]) => {
+export const FYShuffle = (arr: {name:string, url:string}[]) => {
   let oldEl;
   for (let i = arr.length - 1; i > 0; i--) {
     let random = Math.floor(Math.random() * (i + 1));
@@ -17,7 +17,7 @@ export const FYShuffle = (arr: object[]) => {
 
   return arr;
 };
-export const DoubleArray = (arr: object[]) => {
+export const DoubleArray = (arr: {name:string, url:string}[]) => {
   let doubledArr = arr.concat(arr);
   return doubledArr;
 };
