@@ -25,7 +25,7 @@ export interface Props {
 const getNewArr = async () => {
   const arr = await GetPokemon();
   const normalizedPoke = separateTypes(arr);
-  const readPokeArr = RandomizePokemon(normalizedPoke, 6);
+  const readPokeArr = RandomizePokemon(normalizedPoke, 26);
   return readPokeArr;
 };
 export default function Board({ pokeArr }: Props) {

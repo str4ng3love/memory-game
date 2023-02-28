@@ -5,7 +5,7 @@ export default function PopRules() {
 
     useEffect(()=>{
       let body =  document.querySelector('body')
-      console.log(body)
+   
       if(body)
       body.style.overflow='hidden'
     }, [])
@@ -39,7 +39,7 @@ export default function PopRules() {
             <button
               onClick={(e) => {setShow(false);
                 let body =  document.querySelector('body')
-                console.log(body)
+  
                 if(body)
                 body.style.overflow='auto'}}
               className="p-4 bg-black rounded-md text-2xl hover:bg-white hover:text-black"

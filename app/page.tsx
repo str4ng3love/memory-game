@@ -7,7 +7,7 @@ import PopRules from "./components/PopRules";
 const readyArray = async () =>{
   const pokemons = await GetPokemon()
   const normalizedPoke = separateTypes(pokemons)
-  const readyPokeArray = RandomizePokemon(normalizedPoke, 6)
+  const readyPokeArray = RandomizePokemon(normalizedPoke, 26)
 return readyPokeArray
 }
 

@@ -12,7 +12,7 @@ interface Props {
 export default function GameOver({ moves, previousMoves, handleClick }: Props) {
     useEffect(()=>{
       let body =  document.querySelector('body')
-      console.log(body)
+     
       if(body)
       body.style.overflow='hidden'
     }, [])
@@ -41,7 +41,7 @@ export default function GameOver({ moves, previousMoves, handleClick }: Props) {
             <button onClick={(e)=>{
                 handleClick(e);
                  let body =  document.querySelector('body')
-                 console.log(body)
+                 
                  if(body)
                  body.style.overflow='auto'
             }} className="p-4 text-slate-900 rounded-md bg-slate-100 hover:bg-slate-900 hover:text-slate-100 active:bg-slate-700 active:text-slate-300 uppercase">Try again</button>
