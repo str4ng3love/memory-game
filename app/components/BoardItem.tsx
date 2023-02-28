@@ -1,26 +1,33 @@
-import GetPokeId from "@/hooks/GetPokeId";
-
+"use client";
 import Image from "next/image";
 
-
 interface Props {
-  text: string;
-  url: string;
+  index: string;
+  name: string;
+  imageUrl: string;
+  handleClick?: (e: React.MouseEvent) => void;
 }
-export default async function BoardItem({ text, url }: Props) {
-  const id = await GetPokeId(url);
-
+export default function BoardItem({
+  index,
+  name,
+  imageUrl,
+  handleClick,
+}: Props) {
   return (
-    <div className="p-4  font-mono rounded-md bg-black text-white w-32 h-32 hover:scale-105">
-  
+    <>
+      <div
+        onClick={handleClick}
+        id={index}
+        className="p-4 font-mono rounded-md bg-black text-white w-32 h-32 hover:scale-105 transition-all duration-100 ease-linear hover:bg-white"
+      >
         <Image
-          title={text}
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-          alt={text}
+          title={name}
+          src={imageUrl}
+          alt={name}
           width={100}
           height={100}
         />
-   
-    </div>
+      </div>
+    </>
   );
 }
