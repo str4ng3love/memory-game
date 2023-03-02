@@ -7,7 +7,7 @@ import PopRules from "./components/PopRules";
 const readyArray = async () =>{
   const pokemons = await GetPokemon()
   const normalizedPoke = separateTypes(pokemons)
-  const readyPokeArray = RandomizePokemon(normalizedPoke, 26)
+  const readyPokeArray = RandomizePokemon(normalizedPoke,13)
 return readyPokeArray
 }
 
@@ -18,7 +18,7 @@ export default async function Home() {
   let readyPokemonArray = await readyArray()
 
   return (
-    <main className="relative flex flex-col items-center w-full min-h-[100dvh] bg-gradient-to-b  from-orange-800 to-slate-800">
+    <main className="relative flex flex-col items-center w-full min-h-[100dvh] bg-gradient-to-br  from-neutral-900 via-neutral-700 to-neutral-500">
       <PopRules /> 
   <div className="">
     

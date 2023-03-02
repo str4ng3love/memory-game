@@ -18,7 +18,7 @@ export default function GameOver({ moves, previousMoves, handleClick }: Props) {
     }, [])
   return (
     <div className="absolute w-[100%]  h-[100dvh] flex items-center justify-center font-mono">
-      <div className="flex flex-col bg-black p-4 rounded-md text-white min-w-[500px] items-center  shadow-black shadow-lg">
+      <div className="flex flex-col bg-black/80 p-4 rounded-md text-white min-w-[500px] items-center  shadow-black shadow-lg">
         <div>
           <h2 className="font-bold text-2xl mb-4">GAME OVER</h2>
         </div>

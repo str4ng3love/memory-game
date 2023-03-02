@@ -25,7 +25,7 @@ export interface Props {
 const getNewArr = async () => {
   const arr = await GetPokemon();
   const normalizedPoke = separateTypes(arr);
-  const readPokeArr = RandomizePokemon(normalizedPoke, 26);
+  const readPokeArr = RandomizePokemon(normalizedPoke, 13);
   return readPokeArr;
 };
 export default function Board({ pokeArr }: Props) {
@@ -146,7 +146,7 @@ export default function Board({ pokeArr }: Props) {
     checkGameState();
   }, [showCard]);
   return (
-    <div className="w-full font-mono">
+    <div className="w-full font-mono ">
       {showPrompt ? (
         <GameOver
           previousMoves={prev}

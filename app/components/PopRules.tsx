@@ -14,7 +14,7 @@ export default function PopRules() {
     <>
       {show ? (
         <div className="absolute backdrop-blur-md w-[100%] h-[100dvh] flex items-center justify-center font-mono">
-          <div className=" flex flex-col bg-black p-4 rounded-md text-white min-w-[500px] items-center  shadow-black shadow-lg">
+          <div className=" flex flex-col bg-black/80 p-4 rounded-md text-white min-w-[500px] items-center  shadow-black shadow-lg">
             <h2 className="text-2xl">Them Rules:</h2>
             <div className="p-4 flex flex-col ">
               <ul>
@@ -42,7 +42,7 @@ export default function PopRules() {
   
                 if(body)
                 body.style.overflow='auto'}}
-              className="p-4 bg-black rounded-md text-2xl hover:bg-white hover:text-black"
+              className="p-8 bg-black rounded-md text-2xl hover:bg-white hover:text-black"
             >
               PLAY
             </button>
