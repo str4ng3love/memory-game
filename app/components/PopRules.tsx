@@ -25,7 +25,7 @@ export default function PopRules() {
             >
               PLAY
             </button>
-            <h2 className="text-2xl pt-8">Them Rules:</h2>
+            <h2 className="text-2xl pt-8">The Rules:</h2>
             <div className="p-4 flex flex-col ">
               <ul>
                 <li className="p-4">
