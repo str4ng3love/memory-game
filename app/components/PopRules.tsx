@@ -21,7 +21,7 @@ export default function PopRules() {
   
                 if(body)
                 body.style.overflow='auto'}}
-              className="p-8 bg-black rounded-md md:text-2xl text-xl hover:bg-white hover:text-black"
+              className="p-8 bg-gray-800 rounded-md md:text-2xl text-xl hover:bg-white hover:text-black animate-pulse"
             >
               PLAY
             </button>
