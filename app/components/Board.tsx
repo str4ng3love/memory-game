@@ -4,7 +4,7 @@ import { GetPokemon } from "@/services/Pokemon";
 import RandomizePokemon, { separateTypes } from "@/utils/Pokemon";
 
 import { useEffect, useState } from "react";
-
+import PopRules from "./PopRules";
 import BoardItem from "./BoardItem";
 import EmptyBoardItem from "./EmptyBoardItem";
 import GameOver from "./GameOver";
@@ -14,27 +14,21 @@ enum CardState {
   showing = "showing",
   found = "found",
 }
-export interface Props {
-  pokeArr: {
-    name: string;
-    url: string;
-    id: string;
-    imageUrl: string;
-  }[];
-}
+let PokeAmount = 14;
 const getNewArr = async () => {
   const arr = await GetPokemon();
   const normalizedPoke = separateTypes(arr);
-  const readPokeArr = RandomizePokemon(normalizedPoke, 13);
+  const readPokeArr = RandomizePokemon(normalizedPoke, PokeAmount);
   return readPokeArr;
 };
-export default function Board({ pokeArr }: Props) {
+export default function Board() {
   const stateArr: CardState[] = [];
-  for (let i = 0; i < pokeArr.length; i++) {
+  for (let i = 0; i < PokeAmount * 2; i++) {
     stateArr.push(CardState.hidden);
   }
   const [showCard, setShowCard] = useState<CardState[]>(stateArr);
-  const [pokemon, setPokemon] = useState(pokeArr);
+  const [pokemon, setPokemon] =
+    useState<{ name: string; url: string; id: string; imageUrl: string }[]>();
   const [selected, setSelected] = useState<{ name: string; id: number }[]>([]);
   const [moves, setMoves] = useState(0);
   const [prev, setPrev] = useState(0);
@@ -136,7 +130,13 @@ export default function Board({ pokeArr }: Props) {
       })
     );
   };
-
+  useEffect(() => {
+    const GetPokemonData = async () => {
+      const pokeArr = await getNewArr();
+      setPokemon(pokeArr);
+    };
+    GetPokemonData();
+  }, []);
   useEffect(() => {
     if (selected[0]?.name === selected[1]?.name) {
       addScore();
@@ -147,6 +147,7 @@ export default function Board({ pokeArr }: Props) {
   }, [showCard]);
   return (
     <div className="w-full font-mono ">
+      <PopRules />
       {showPrompt ? (
         <GameOver
           previousMoves={prev}
@@ -160,39 +161,42 @@ export default function Board({ pokeArr }: Props) {
         <></>
       )}
       <div className="flex justify-evenly w-full p-4">
-        <h3 className="font-bold text-white text-3xl">Moves: {moves}</h3>
-        <h3 className="font-bold text-white text-3xl">Previous: {prev}</h3>
+        <h3 className="font-bold text-white text-2xl md:text-3xl">Moves: {moves}</h3>
+        <h3 className="font-bold text-white text-2xl md:text-3xl">Previous: {prev}</h3>
       </div>
-      <div className="p-8 grid grid-cols-auto gap-4 w-full justify-items-center">
-        {pokemon.map((poke, index) => (
-          <div key={index}>
-            {showCard[index] === CardState.showing ? (
-              <BoardItem
-                handleClick={(e) => selectAgain(e)}
-                index={index.toString()}
-                imageUrl={poke.imageUrl}
-                name={poke.name}
-              />
-            ) : (
-              <></>
-            )}
-            {showCard[index] === CardState.hidden ? (
-              <EmptyBoardItem
-                handleClick={revealCard}
-                index={index.toString()}
-                name={poke.name}
-              />
-            ) : (
-              <></>
-            )}
-            {showCard[index] === CardState.found ? (
-              <RevealedBoardItem index={index.toString()} />
-            ) : (
-              <></>
-            )}
-          </div>
-        ))}
+    <div className="flex justify-center">
+    <div className="p-8 grid grid-cols-mini_auto md:grid-cols-auto gap-4 w-full justify-items-center md:w-[80%] max-w-[1080px]">
+        {pokemon &&
+          pokemon.map((poke, index) => (
+            <div key={index}>
+              {showCard[index] === CardState.showing ? (
+                <BoardItem
+                  handleClick={(e) => selectAgain(e)}
+                  index={index.toString()}
+                  imageUrl={poke.imageUrl}
+                  name={poke.name}
+                />
+              ) : (
+                <></>
+              )}
+              {showCard[index] === CardState.hidden ? (
+                <EmptyBoardItem
+                  handleClick={revealCard}
+                  index={index.toString()}
+                  name={poke.name}
+                />
+              ) : (
+                <></>
+              )}
+              {showCard[index] === CardState.found ? (
+                <RevealedBoardItem index={index.toString()} />
+              ) : (
+                <></>
+              )}
+            </div>
+          ))}
       </div>
+    </div>
     </div>
   );
 }

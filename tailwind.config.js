@@ -4,8 +4,12 @@ module.exports = {
   theme: {
     gridTemplateColumns: {
       auto: `repeat(auto-fit, minmax(128px, 1fr));`,
+      mini_auto: `repeat(auto-fit, minmax(64px, 1fr));`,
     },
     extend: {
+      screens: {
+        md: '1080px'
+      },
       animation: {
         "spin-out": "spinOut 1s ease-in",
         "fade-in": "fadeIn 0.3s linear",

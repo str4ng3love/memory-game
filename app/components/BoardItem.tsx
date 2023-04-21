@@ -18,15 +18,17 @@ export default function BoardItem({
       <div
         onClick={handleClick}
         id={index}
-        className="shadow-md shadow-black p-4 font-mono rounded-md bg-black text-white w-32 h-32 hover:scale-105 transition-all duration-100 ease-linear hover:bg-white "
+        className="shadow-md shadow-black p-2 md:p-4 font-mono rounded-md bg-black text-white w-16 h-16 md:w-32 md:h-32 hover:scale-105 transition-all duration-100 ease-linear hover:bg-white "
       >
         <span className="hidden">{name}</span>
         <Image
+          
           title={name}
           src={imageUrl}
           alt={name}
           width={100}
           height={100}
+          
         />
       </div>
     </>
