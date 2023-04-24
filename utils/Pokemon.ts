@@ -3,8 +3,8 @@
 export default function RandomizePokemon(pokeArray: {name:string, url:string, id:string, imageUrl:string}[], amount:number) {
     const randomPokes = FYShuffle(pokeArray).slice(0, amount)
     const pairArr = DoubleArray(randomPokes)
-    const shuffledArrWithPairs = FYShuffle(pairArr)
-    return shuffledArrWithPairs
+    const shuffledPariArray = FYShuffle(pairArr)
+    return shuffledPariArray
 }
 export const FYShuffle = (arr: {name:string, url:string, id:string , imageUrl:string}[]) => {
   let oldEl;

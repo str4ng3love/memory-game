@@ -22,7 +22,7 @@ export default function BoardItem({
       >
         <span className="hidden">{name}</span>
         <Image
-          
+          priority={true}
           title={name}
           src={imageUrl}
           alt={name}

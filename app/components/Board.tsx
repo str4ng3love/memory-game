@@ -18,8 +18,8 @@ let PokeAmount = 14;
 const getNewArr = async () => {
   const arr = await GetPokemon();
   const normalizedPoke = separateTypes(arr);
-  const readPokeArr = RandomizePokemon(normalizedPoke, PokeAmount);
-  return readPokeArr;
+  const readyPokeArr = RandomizePokemon(normalizedPoke, PokeAmount);
+  return readyPokeArr;
 };
 export default function Board() {
   const stateArr: CardState[] = [];
@@ -161,42 +161,47 @@ export default function Board() {
         <></>
       )}
       <div className="flex justify-evenly w-full p-4">
-        <h3 className="font-bold text-white text-2xl md:text-3xl">Moves: {moves}</h3>
-        <h3 className="font-bold text-white text-2xl md:text-3xl">Previous: {prev}</h3>
+        <h3 className="font-bold text-white text-2xl md:text-3xl">
+          Moves: {moves}
+        </h3>
+        <h3 className="font-bold text-white text-2xl md:text-3xl">
+          Previous: {prev}
+        </h3>
       </div>
-    <div className="flex justify-center">
-    <div className="p-8 grid grid-cols-mini_auto md:grid-cols-auto gap-4 w-full justify-items-center md:w-[80%] max-w-[1080px]">
-        {pokemon &&
-          pokemon.map((poke, index) => (
-            <div key={index}>
-              {showCard[index] === CardState.showing ? (
-                <BoardItem
-                  handleClick={(e) => selectAgain(e)}
-                  index={index.toString()}
-                  imageUrl={poke.imageUrl}
-                  name={poke.name}
-                />
-              ) : (
-                <></>
-              )}
-              {showCard[index] === CardState.hidden ? (
-                <EmptyBoardItem
-                  handleClick={revealCard}
-                  index={index.toString()}
-                  name={poke.name}
-                />
-              ) : (
-                <></>
-              )}
-              {showCard[index] === CardState.found ? (
-                <RevealedBoardItem index={index.toString()} />
-              ) : (
-                <></>
-              )}
-            </div>
-          ))}
+      <div className="flex justify-center">
+        <div className="p-8 grid grid-cols-mini_auto md:grid-cols-auto gap-4 w-full justify-items-center md:w-[80%] max-w-[1080px]">
+          {pokemon &&
+            pokemon.map((poke, index) => (
+              <div key={index}>
+                {showCard[index] === CardState.showing ? (
+                  <BoardItem
+                    handleClick={(e) => selectAgain(e)}
+                    index={index.toString()}
+                    imageUrl={poke.imageUrl}
+                    name={poke.name}
+                  />
+                ) : (
+                  <></>
+                )}
+                {showCard[index] === CardState.hidden ? (
+                  <EmptyBoardItem
+                    imageUrl={poke.imageUrl}
+                    handleClick={revealCard}
+                    index={index.toString()}
+                    name={poke.name}
+                  />
+                ) : (
+                  <></>
+                )}
+                {showCard[index] === CardState.found ? (
+                  <RevealedBoardItem index={index.toString()} />
+                ) : (
+                  <></>
+                )}
+              </div>
+            ))}
+        </div>
       </div>
-    </div>
     </div>
   );
 }
