@@ -13,7 +13,7 @@ export default function PopRules() {
   return (
     <>
       {show ? (
-        <div className="absolute -translate-y-36 min-w-full min-h-full flex justify-center">
+        <div className="absolute -translate-y-36 min-w-full min-h-full flex justify-center z-10">
           <div className="flex flex-col mt-28 bg-black/80 h-fit p-4 rounded-md text-white min-w-[400px] w-fit items-center right-0 shadow-black shadow-lg">
             <button
               onClick={(e) => {setShow(false);
