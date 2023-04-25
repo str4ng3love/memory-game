@@ -20,7 +20,7 @@ export default function EmptyBoardItem({imageUrl, handleClick, index, name }: Pr
         <Image
           className="opacity-0"
           priority={true}
-          title={name}
+        
           src={imageUrl}
           alt={name}
           width={100}
