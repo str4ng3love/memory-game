@@ -14,7 +14,7 @@ export async function GetPokemon() {
       {
         id: id,
       },
-      { imageUrl }
+      { imageUrl },
     );
   }
   return pokemon.results;

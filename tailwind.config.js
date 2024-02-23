@@ -8,12 +8,12 @@ module.exports = {
     },
     extend: {
       screens: {
-        md: '1080px'
+        md: "1080px",
       },
       animation: {
         "spin-out": "spinOut 1s ease-in",
         "fade-in": "fadeIn 0.3s linear",
-        "fade-out": "fadeOut 0.3s linear"
+        "fade-out": "fadeOut 0.3s linear",
       },
       keyframes: {
         spinOut: {
@@ -22,7 +22,7 @@ module.exports = {
             transform: "rotate(0deg)",
           },
           "100%": {
-            transform:"rotate(180deg)",
+            transform: "rotate(180deg)",
             opacity: "0",
             scale: "0.6",
           },

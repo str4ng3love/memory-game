@@ -59,7 +59,7 @@ export default function Board() {
           item = CardState.found;
         }
         return item;
-      })
+      }),
     );
   };
   const selectAgain = (e: React.MouseEvent) => {
@@ -93,7 +93,7 @@ export default function Board() {
             item = CardState.hidden;
           }
           return item;
-        })
+        }),
       );
     }
   };
@@ -115,7 +115,7 @@ export default function Board() {
             return item;
           }
           return (item = CardState.hidden);
-        })
+        }),
       );
     } else {
       setSelected((prev) => [...prev, obj]);
@@ -127,7 +127,7 @@ export default function Board() {
           item = CardState.showing;
         }
         return item;
-      })
+      }),
     );
   };
   useEffect(() => {
@@ -160,16 +160,16 @@ export default function Board() {
       ) : (
         <></>
       )}
-      <div className="flex justify-evenly w-full p-4">
-        <h3 className="font-bold text-white text-2xl md:text-3xl">
+      <div className="flex w-full justify-evenly p-4">
+        <h3 className="text-2xl font-bold text-white md:text-3xl">
           Moves: {moves}
         </h3>
-        <h3 className="font-bold text-white text-2xl md:text-3xl">
+        <h3 className="text-2xl font-bold text-white md:text-3xl">
           Previous: {prev}
         </h3>
       </div>
       <div className="flex justify-center">
-        <div className="p-8 grid grid-cols-mini_auto md:grid-cols-auto gap-4 w-full justify-items-center md:w-[80%] max-w-[1080px]">
+        <div className="grid w-full max-w-[1080px] grid-cols-mini_auto justify-items-center gap-4 p-8 md:w-[80%] md:grid-cols-auto">
           {pokemon &&
             pokemon.map((poke, index) => (
               <div key={index}>
